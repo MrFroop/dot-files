@@ -17,12 +17,16 @@ antigen bundle docker
 antigen bundle docker-compose
 antigen bundle tmux
 antigen bundle tmuxinator
+antigen bundle kubectl
 
 # Remind me about aliases for the command i just used.
 antigen bundle djui/alias-tips 
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
+
+# This is the new j apperently.
+antigen bundle rupa/z
 
 # Load the theme.
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
@@ -43,7 +47,7 @@ export EDITOR=vim
 
 # Load host specific settings if they exist
 if [[ -f ~/.zshrc-host && -r ~/.zshrc-host ]]; then
-	source .zshrc-host
+	source ~/.zshrc-host
 fi
 
 # Tell antigen that you're done.
