@@ -15,6 +15,7 @@ antigen bundle git-extras
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle tmux
+antigen bundle tmuxinator
 
 # Remind me about aliases for the command i just used.
 antigen bundle djui/alias-tips 
@@ -35,6 +36,9 @@ export SPACESHIP_PYENV_SHOW=false
 export SPACESHIP_VI_MODE_SHOW=false
 export SPACESHIP_GIT_UNPULLED="↓"
 export SPACESHIP_GIT_UNPUSHED="↑"
+
+# Set vim as default editor
+export EDITOR=vim
 
 # Load host specific settings if they exist
 if [[ -f .zshrc-host && -r .zshrc-host ]]; then
