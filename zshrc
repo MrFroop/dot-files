@@ -3,6 +3,7 @@ source /usr/share/zsh-antigen/antigen.zsh
 
 # Setup LANGUAGE so that ubuntu isn't complaining.
 export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -41,7 +42,7 @@ export SPACESHIP_GIT_UNPUSHED="↑"
 export EDITOR=vim
 
 # Load host specific settings if they exist
-if [[ -f .zshrc-host && -r .zshrc-host ]]; then
+if [[ -f ~/.zshrc-host && -r ~/.zshrc-host ]]; then
 	source .zshrc-host
 fi
 
