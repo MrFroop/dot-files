@@ -36,10 +36,10 @@ export SPACESHIP_VI_MODE_SHOW=false
 export SPACESHIP_GIT_UNPULLED="↓"
 export SPACESHIP_GIT_UNPUSHED="↑"
 
-
-# Setup drone-cli
-export DRONE_SERVER=http://localhost
-export DRONE_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0IjoibXJmcm9vcCIsInR5cGUiOiJ1c2VyIn0.6umEJ0kRX1fiZlV8gkart0zK4fk6fV0OML5i0DdJpWs
+# Load host specific settings if they exist
+if [[ -f .zshrc-host && -r .zshrc-host ]]; then
+	source .zshrc-host
+fi
 
 # Tell antigen that you're done.
 antigen apply
