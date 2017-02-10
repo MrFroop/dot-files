@@ -2,5 +2,6 @@
 
 - link:
     ~/.zshrc: zshrc
-
+    ~/.toprc: toprc
+    ~/.vimrc: vimrc
 

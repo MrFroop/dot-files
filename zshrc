@@ -15,9 +15,9 @@ antigen bundle command-not-found
 antigen bundle git-extras
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle tmux
-antigen bundle tmuxinator
-antigen bundle kubectl
+antigen bundle debian
+antigen bundle systemd
+antigen bundle vundle
 
 # Remind me about aliases for the command i just used.
 antigen bundle djui/alias-tips 
