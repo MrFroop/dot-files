@@ -8,9 +8,11 @@ export LC_ALL=en_US.UTF-8
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle pip
 antigen bundle command-not-found
 antigen bundle git-extras
 antigen bundle docker
@@ -18,12 +20,19 @@ antigen bundle docker-compose
 antigen bundle debian
 antigen bundle systemd
 antigen bundle vundle
+antigen bundle tmuxinator
+
+# A better history search
+antigen bundle zsh-users/zsh-history-substring-search
+
+# The name kinda gives this away.
+antigen bundle zuxfoucault/colored-man-pages_mod
+
+# Adds autoupdate to antigen.
+antigen bundle unixorn/autoupdate-antigen.zshplugin
 
 # Remind me about aliases for the command i just used.
 antigen bundle djui/alias-tips 
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
 
 # This is the new j apperently.
 antigen bundle rupa/z
