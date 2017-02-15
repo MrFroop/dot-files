@@ -14,6 +14,15 @@ Plugin 'Valloric/YouCompleteMe'
 " Enable Ctrl-a and friends
 Plugin 'tpope/vim-rsi'
 
+Plugin 'tpope/vim-surround'
+
+" Command line 
+Plugin 'ctrlpvim/ctrlp.vim'
+
+Plugin 'scrooloose/nerdcommenter'
+
+Plugin 'airblade/vim-gitgutter'
+
 " Tell vundle we are done
 call vundle#end()
 
@@ -29,6 +38,7 @@ set directory=~/.backup//,/tmp//
 set showcmd
 set hlsearch
 set scrolloff=5
+set number " Line numbers
 
 " No tabs please
 set expandtab
@@ -36,3 +46,5 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+" omni complete by syntax
+set omnifunc=syntaxcomplete#Complete
