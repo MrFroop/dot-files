@@ -4,4 +4,7 @@
     ~/.zshrc: zshrc
     ~/.toprc: toprc
     ~/.vimrc: vimrc
-
+    ~/.byobu: byobu
+    ~/.config/nvim/init.vim: 
+        create: true
+        path: vimrc
