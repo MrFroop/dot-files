@@ -1,34 +1,29 @@
-set nocompatible
+if has('vim_starting')
+    set nocompatible
+endif
 
-" Setup Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+" Automatic installation of vim-plug
 
-" GIT support
-Plugin 'tpope/vim-fugitive'
+let vimplug_file=expand('~/.local/share/nvim/site/autoload/plug.vim')
+let vimplug_repo='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-" Auto completion
-Plugin 'Valloric/YouCompleteMe'
 
-" Enable Ctrl-a and friends
-Plugin 'tpope/vim-rsi'
+if !filereadable(vimplug_file)
+  silent exec '!curl -fLo '.vimplug_file.' --create-dirs '.vimplug_repo  
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
 
-Plugin 'tpope/vim-surround'
+call plug#begin('~/.local/share/nvim/plugged')
 
-" Command line 
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } 
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
 
-Plugin 'scrooloose/nerdcommenter'
-
-Plugin 'airblade/vim-gitgutter'
-
-" Tell vundle we are done
-call vundle#end()
-
-" General settings
-filetype plugin indent on 
-set autoindent
+call plug#end()
 
 " Make vim create backups in a common place
 set backupdir=~/.backup//,/tmp//
@@ -38,7 +33,7 @@ set directory=~/.backup//,/tmp//
 set showcmd
 set hlsearch
 set scrolloff=5
-set number " Line numbers
+set number         " Line numbers
 
 " No tabs please
 set expandtab
@@ -48,3 +43,7 @@ set softtabstop=4
 
 " omni complete by syntax
 set omnifunc=syntaxcomplete#Complete
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
