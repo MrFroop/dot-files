@@ -59,5 +59,9 @@ if [[ -f ~/.zshrc-host && -r ~/.zshrc-host ]]; then
 	source ~/.zshrc-host
 fi
 
+# Setup GO environment.
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/work
+
 # Tell antigen that you're done.
 antigen apply
