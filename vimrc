@@ -36,21 +36,22 @@ call plug#end()
 set backupdir=~/.backup//,/tmp//
 set directory=~/.backup//,/tmp//
 
-" General editor settings.
+"" General editor settings.
 set showcmd
 set hlsearch
 set scrolloff=5
-set number         " Line numbers,
+set number         " Line numbers.
 set autowrite      " Write on make.
 set hidden         " Let buffers stay open in background.
 
 
-
-" No tabs please
+" Expand tabs.
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+"" YCM Settings
 
 " omni complete by syntax
 set omnifunc=syntaxcomplete#Complete
@@ -59,13 +60,18 @@ set omnifunc=syntaxcomplete#Complete
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
-" NERDTree settings
+"" NERDTree settings
 
+" Open nerdtree by default.
+autocmd vimenter * NERDTree
 
-" GO Settings
+"" GO Settings
 map <C-n> :cnext<CR>
 map <C-p> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
-" Open nerdtree by default.
-autocmd vimenter * NERDTree
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+let g:go_list_type = "quickfix"
+
