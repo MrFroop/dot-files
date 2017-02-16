@@ -3,10 +3,8 @@ if has('vim_starting')
 endif
 
 " Automatic installation of vim-plug
-
 let vimplug_file=expand('~/.local/share/nvim/site/autoload/plug.vim')
 let vimplug_repo='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
 
 if !filereadable(vimplug_file)
   silent exec '!curl -fLo '.vimplug_file.' --create-dirs '.vimplug_repo  
@@ -22,6 +20,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'neomake/neomake'
+Plug 'scrooloose/nerdtree'
+Plug ''
 
 call plug#end()
 
@@ -47,3 +49,6 @@ set omnifunc=syntaxcomplete#Complete
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+
+" Open nerdtree by default.
+autocmd vimenter * NERDTree
