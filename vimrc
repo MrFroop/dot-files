@@ -3,13 +3,14 @@ set nocompatible
 " I learned to like Vim in spacemacs so i'm used to space as leader.
 let mapleader = "\<Space>"
 
-" Automatic installation of vim-plug
-let vimplug_file=expand('~/.local/share/nvim/site/autoload/plug.vim')
-let vimplug_repo='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 "*****************************************************************************
 "* Plugins
 "*****************************************************************************
+
+" Automatic installation of vim-plug
+let vimplug_file=expand('~/.local/share/nvim/site/autoload/plug.vim')
+let vimplug_repo='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 if !filereadable(vimplug_file)
   silent exec '!curl -fLo '.vimplug_file.' --create-dirs '.vimplug_repo
@@ -30,6 +31,8 @@ Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'SirVer/ultisnips'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 
@@ -55,6 +58,10 @@ set softtabstop=4
 set backupdir=~/.backup//,/tmp//
 set directory=~/.backup//,/tmp//
 
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 "*****************************************************************************
 "* YCM Settings
 "*****************************************************************************
@@ -62,9 +69,6 @@ set directory=~/.backup//,/tmp//
 " omni complete by syntax
 set omnifunc=syntaxcomplete#Complete
 
-" Clear highlighting on escape in normal mode
-nnoremap <esc> :noh<return><esc>
-nnoremap <esc>^[ <esc>^[
 
 "*****************************************************************************
 "* NERDTree settings
@@ -83,16 +87,33 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "*****************************************************************************
 "* GO Settings
 "*****************************************************************************
+
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+
 map <C-n> :cnext<CR>
 map <C-p> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
-let g:go_list_type = "quickfix"
+" Run :GoBuild or :GoTestCompile based on the go file.
+function! s:build_go_files()
+    let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+        call go#cmd#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+        call go#cmd#Build(0)
+    endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
 "*****************************************************************************
 "* Misc Plugin Settings
 "*****************************************************************************
 
+let g:ctrlp_map = '<s-p>'
+let g:UltiSnipsExpandTrigger = "<c-j>"
