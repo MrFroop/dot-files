@@ -1,5 +1,5 @@
 # Source antigen
-source /usr/share/zsh-antigen/antigen.zsh
+source ~/.antigen.zsh
 
 # Setup LANGUAGE so that ubuntu isn't complaining.
 export LANGUAGE=en_US.UTF-8

@@ -8,3 +8,4 @@
     ~/.config/nvim/init.vim: 
         create: true
         path: vimrc
+    ~/.antigen.zsh: antigen/bin/antigen.zsh
