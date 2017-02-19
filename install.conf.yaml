@@ -5,7 +5,8 @@
     ~/.toprc: toprc
     ~/.vimrc: vimrc
     ~/.byobu: byobu
-    ~/.config/nvim/init.vim: 
+    ~/.config/nvim/init.vim:
         create: true
         path: vimrc
     ~/.antigen.zsh: antigen/bin/antigen.zsh
+    ~/.config/i3: i3
