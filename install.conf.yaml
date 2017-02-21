@@ -14,6 +14,9 @@
         create: true
         path: rofi.config
     ~/.tmux.conf: tmux.conf
+    ~/.tmux/plugins/tpm:
+        create: true
+        path: tpm
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

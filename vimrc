@@ -22,7 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'wincent/command-t'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'neomake/neomake'
@@ -126,6 +126,4 @@ nnoremap <silent> <S-p>     :TmuxNavigatePrevious<cr>
 "*****************************************************************************
 "* Misc Plugin Settings
 "*****************************************************************************
-
-let g:ctrlp_map = '<s-p>'
 let g:UltiSnipsExpandTrigger = "<c-j>"
