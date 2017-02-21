@@ -3,11 +3,9 @@ set nocompatible
 " I learned to like Vim in spacemacs so i'm used to space as leader.
 let mapleader = "\<Space>"
 
-
 "*****************************************************************************
 "* Plugins
 "*****************************************************************************
-
 " Automatic installation of vim-plug
 let vimplug_file=expand('~/.local/share/nvim/site/autoload/plug.vim')
 let vimplug_repo='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -35,9 +33,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'SirVer/ultisnips'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
-
 "*****************************************************************************
 "* General editor settings.
 "*****************************************************************************
@@ -61,6 +59,9 @@ set directory=~/.backup//,/tmp//
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+
+" Let Ctrl-C double as Esc
+nnoremap <C-c> <esc>
 
 "*****************************************************************************
 "* YCM Settings
@@ -110,6 +111,17 @@ endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+"*****************************************************************************
+"* Tmux navigato
+"*****************************************************************************
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <S-Left>  :TmuxNavigateLeft<cr>
+nnoremap <silent> <S-Down>  :TmuxNavigateDown<cr>
+nnoremap <silent> <S-Up>    :TmuxNavigateUp<cr>
+nnoremap <silent> <S-Right> :TmuxNavigateRight<cr>
+nnoremap <silent> <S-p>     :TmuxNavigatePrevious<cr>
 
 "*****************************************************************************
 "* Misc Plugin Settings
