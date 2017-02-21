@@ -10,5 +10,10 @@
         path: vimrc
     ~/.antigen.zsh: antigen/bin/antigen.zsh
     ~/.config/i3: i3
-    ~/.config/rofi/config: rofi.config
+    ~/.config/rofi/config:
+        create: true
+        path: rofi.config
     ~/.tmux.conf: tmux.conf
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
