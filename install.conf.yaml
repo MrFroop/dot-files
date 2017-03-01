@@ -17,6 +17,7 @@
     ~/.tmux/plugins/tpm:
         create: true
         path: tpm
+    ~/.config/compton.conf: compton.conf
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

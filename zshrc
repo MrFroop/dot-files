@@ -1,3 +1,5 @@
+# -*- mode: sh; -*-
+
 # Source antigen
 source ~/.antigen.zsh
 
@@ -60,8 +62,13 @@ if [[ -f ~/.zshrc-host && -r ~/.zshrc-host ]]; then
 fi
 
 # Setup GO environment.
-export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/work
+export GOROOT=/usr/local/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+
+# Add cask
+export PATH="/home/mrfroop/.cask/bin:$PATH"
 
 # Tell antigen that you're done.
 antigen apply
