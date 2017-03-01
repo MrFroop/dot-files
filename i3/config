@@ -133,7 +133,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px
         bindsym k resize grow height 10 px
         bindsym l resize shrink height 10 px
-        bindsym odiaeresis resize grow width
+        bindsym odiaeresis resize grow width 10px
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px
