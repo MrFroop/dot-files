@@ -13,7 +13,7 @@
     ~/.config/rofi/config:
         create: true
         path: rofi.config
-    ~/.config/i3status: i3status
+    ~/.config/i3blocks: i3blocks
     ~/.tmux.conf: tmux.conf
     ~/.tmux/plugins/tpm:
         create: true
