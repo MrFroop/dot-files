@@ -55,6 +55,10 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# Screens
+set $screen1 HDMI-0
+set $screen2 DVI-0
+    
 # Workspace setup screen 1
 set $workspace1 "1:"
 set $workspace2 "2:"
@@ -63,11 +67,11 @@ set $workspace4 "4:"
 set $workspace5 "5:"
 
 # Setup workspace 1-5 on monitor 1
-workspace $workspace1 output HDMI-0
-workspace $workspace2 output HDMI-0
-workspace $workspace3 output HDMI-0
-workspace $workspace4 output HDMI-0
-workspace $workspace5 output HDMI-0
+workspace $workspace1 output $screen1
+workspace $workspace2 output $screen1
+workspace $workspace3 output $screen1
+workspace $workspace4 output $screen1
+workspace $workspace5 output $screen1
 
 # Workspace setup screen 2
 set $workspace6 "6:"
@@ -77,11 +81,11 @@ set $workspace9 "9:"
 set $workspace0 "10:"
 
 # Setup workspace 6-0 on monitor 2
-workspace $workspace6 output DVI-0
-workspace $workspace7 output DVI-0
-workspace $workspace8 output DVI-0
-workspace $workspace9 output DVI-0
-workspace $workspace0 output DVI-0
+workspace $workspace6 output $screen2
+workspace $workspace7 output $screen2
+workspace $workspace8 output $screen2
+workspace $workspace9 output $screen2
+workspace $workspace0 output $screen2
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -113,6 +117,9 @@ assign [class="Google-chrome"] $workspace6
 # Need to do it like this due to a bug in Spotify.
 for_window [class="Spotify"] move to workspace $workspace0
 
+bindsym $mod+Ctrl+Left  workspace prev_on_output
+bindsym $mod+Ctrl+Right workspace next_on_output
+    
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -176,10 +183,16 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 hide_edge_borders smart
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)i
+# Bar on main screen
 bar {
+    tray_output $screen1
     status_command i3blocks
+    output $screen1
+}
+
+# Bar on secondary screen
+bar {
+    output $screen2
 }
 
 exec --no-startup-id compton

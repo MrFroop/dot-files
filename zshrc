@@ -22,7 +22,7 @@ antigen bundle docker-compose
 antigen bundle debian
 antigen bundle systemd
 antigen bundle vundle
-antigen bundle tmuxinator
+antigen bundle yarn
 
 # A better history search
 antigen bundle zsh-users/zsh-history-substring-search
@@ -68,7 +68,7 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 
 # Add cask
-export PATH="/home/mrfroop/.cask/bin:$PATH"
+export PATH="/home/mrfroop/.cask/bin:$HOME/.local/idea-IU-171.3780.15/bin:$PATH"
 
 # Tell antigen that you're done.
 antigen apply

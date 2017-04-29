@@ -14,10 +14,6 @@
         create: true
         path: rofi.config
     ~/.config/i3blocks: i3blocks
-    ~/.tmux.conf: tmux.conf
-    ~/.tmux/plugins/tpm:
-        create: true
-        path: tpm
     ~/.config/compton.conf: compton.conf
 
 - shell:
