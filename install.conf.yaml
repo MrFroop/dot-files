@@ -5,7 +5,16 @@
     ~/.toprc: toprc
     ~/.vimrc: vimrc
     ~/.byobu: byobu
-    ~/.config/nvim/init.vim: 
+    ~/.config/nvim/init.vim:
         create: true
         path: vimrc
     ~/.antigen.zsh: antigen/bin/antigen.zsh
+    ~/.config/i3: i3
+    ~/.config/rofi/config:
+        create: true
+        path: rofi.config
+    ~/.config/i3blocks: i3blocks
+    ~/.config/compton.conf: compton.conf
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
