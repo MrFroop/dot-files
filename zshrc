@@ -65,3 +65,13 @@ export GOPATH=$HOME/work
 
 # Tell antigen that you're done.
 antigen apply
+
+if [[ "$TERM" == "dumb" ]]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  unfunction precmd
+  unfunction preexec
+  PS1='$ '
+fi
