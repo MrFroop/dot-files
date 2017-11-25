@@ -85,6 +85,8 @@ let g:NERDTreeWinSize=35
 " Close vim if NERDTree is the only open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+map <C-n> :NERDTreeToggle<CR>
+
 "*****************************************************************************
 "* GO Settings
 "*****************************************************************************
